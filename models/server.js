@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
 const { createServer } = require('http');
+const { socketController } = require( '../socket/controller' );
+
 
 const { dbConnection } = require('../database/config');
 
