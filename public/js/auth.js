@@ -1,8 +1,45 @@
 // console.log(window.location.hostname.includes('localhost'))
 
-        var url = ( window.location.hostname.includes('localhost') )
-                    ? 'http://localhost:8081/api/auth/google'
-                    : 'https://restserver-curso-fher.herokuapp.com/api/auth/google';
+const miFormulario = document.querySelector('form');
+
+
+
+        const  url = ( window.location.hostname.includes('localhost') )
+                    ? 'http://localhost:8081/api/auth/'
+                    : 'https://restserver-curso-fher.herokuapp.com/api/auth/';
+
+
+
+        miFormulario.addEventListener( 'submit', (e) => {
+            e.preventDefault();
+
+            const formData = {};
+
+            for( let el of miFormulario.elements ){
+
+                if( el.name.length > 0 ){
+                    formData[el.name] = el.value; 
+                }
+
+            }
+
+            fetch( url + 'login', {
+                method: 'POST',
+                body: JSON.stringify( formData ),
+                headers: { 'Content-Type': 'application/json' }
+            } )
+            .then( resp => resp.json() )
+            .then( data => {
+                console.log( data );
+            } )
+            .catch( err => {
+                console.log( err );
+            } );
+
+        } );
+
+
+
 
 
         function onSignIn(googleUser) {
@@ -18,7 +55,7 @@
             var id_token = googleUser.getAuthResponse().id_token;
             const data = { id_token };
 
-            fetch( url, {
+            fetch( url + 'google' , {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify( data )
