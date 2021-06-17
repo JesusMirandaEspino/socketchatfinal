@@ -1,9 +1,14 @@
+const { comprobrarJWT } = require('../helpers')
 
 
+const socketController = async ( socket ) => {
 
-const socketController = ( socket ) => {
+    const usuario = await comprobrarJWT( socket.handshake.headers['x-token']);
+    if( !usuario ){
+        socket.disconnet();
+    }
 
-    console.log( socket.handshake.headers['x-token'] );
+    console.log( `Se conecto ${usuario.nombre}` );
 
 }
 
