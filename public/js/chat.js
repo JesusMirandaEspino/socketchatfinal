@@ -25,6 +25,18 @@ const validarJWT = async () => {
     localStorage.setItem( 'token', tokenDB);
     usuario = userDB;
 
+    document.title = usuario;
+
+    await conectarSocket();
+    
+}
+
+const conectarSocket = async () => {
+    const socket = io({
+        'extraHeaders': {
+            'x-token': localStorage.getItem('token')
+        }
+    });
 
 }
 
@@ -40,4 +52,3 @@ const main  =  async () => {
 main();
 
 
-//const socket = io();

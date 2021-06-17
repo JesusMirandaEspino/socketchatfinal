@@ -34,6 +34,7 @@ const miFormulario = document.querySelector('form');
                     return console.error( msg );
                 }
                 localStorage.setItem( 'token', token );
+                window.location = 'chat.html';
             } )
             .catch( err => {
                 console.log( err );
@@ -66,6 +67,7 @@ const miFormulario = document.querySelector('form');
             .then( resp => resp.json() )
             .then( ( { token } ) => {
                 localStorage.setItem( 'token', token );
+                window.location = 'chat.html';
             })
             .catch( console.log );
             

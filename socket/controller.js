@@ -3,7 +3,7 @@
 
 const socketController = ( socket ) => {
 
-    console.log( 'cliente conectado' );
+    console.log( socket.handshake.headers['x-token'] );
 
 }
 
