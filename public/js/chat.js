@@ -1,6 +1,12 @@
 let usuario = null;
 let socket = null;
 
+const txtUid = document.querySelector('#txtUid');
+const mensaje = document.querySelector('#mensaje');
+const ulUsuarios = document.querySelector('#ulUsuarios');
+const ulMensaje = document.querySelector('#ulMensaje');
+const btnSalir = document.querySelector('#btnSalir');
+
 
         const  url = ( window.location.hostname.includes('localhost') )
                     ? 'http://localhost:8081/api/auth/'
@@ -37,6 +43,27 @@ const conectarSocket = async () => {
             'x-token': localStorage.getItem('token')
         }
     });
+
+    socket.on( 'connect', () => {
+        console.log( 'Socket online' );
+    } );
+
+
+    socket.on( 'disconnect', () => {
+        console.log( 'Socket offline' );
+    } );
+
+    socket.on( 'recibir-mensajes', () => {
+        //TODO
+    } );
+
+    socket.on( 'usuarios-activos', () => {
+        //TODO
+    } );
+
+    socket.on( 'mensaje-privado', () => {
+        //TODO
+    } );
 
 }
 

@@ -2,6 +2,7 @@
 
 const miFormulario = document.querySelector('form');
 
+console.log( miFormulario );
 
 
         const  url = ( window.location.hostname.includes('localhost') )
