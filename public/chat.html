@@ -1,17 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat</title>
+    <title>Google Signin</title>
+
+    <meta name="google-signin-client_id"
+        content="138391390360-69ufp7409ckjhftu7u7jqfesb7kq2n72.apps.googleusercontent.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
 </head>
+
 <body>
 
-    
+    <section class="container">
 
-    <script src="./socket.io/socket.io.js" ></script>
-    <script src="./js/chat.js"  ></script>
+        <div class="row mt-5">
+
+            <div class="col-ms-6" >
+                <h2>Enviar mensaje</h2>
+                <hr>
+                <input type="text"  id="txtUid"  class="form-control mb-6"  autocomplete="off"   placeholder="uid">
+                <input type="text"  id="mensaje"  class="form-control mb-6"  autocomplete="off"  placeholder="Mensaje">
+
+                <h2>Usuarios</h2>
+                <hr>
+                <ul id="ulUsuarios" >
+
+                </ul>
+
+            </div>
+
+            <div class="col-ms-6" >
+                <h3>Chat Completo</h3>
+                <hr>
+                <ul>
+
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="container">
+
+            <div class="row mt-5">
+
+                <button id="btnSalir" class="btn-outline-danger" >
+                    Logout
+                </button>
+
+            </div>
+
+    </section>
+
+
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="./js/auth.js"></script>
 
 </body>
+
 </html>
