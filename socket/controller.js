@@ -27,7 +27,10 @@ const socketController = async( socket = new Socket(), io ) => {
 
 
     socket.on( 'enviar-mensaje', ( { mensaje, uid } ) => {
-        console.log( payload );
+
+        chatMensajes.enviarMensaje( usuario.id, usuario.nombre, mensaje );
+        io.emit( 'recibir-mensajes', chatMensajes.ultimos10 );
+        
     } );
 
 }
